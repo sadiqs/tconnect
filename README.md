@@ -14,7 +14,7 @@ The supporting infrastructure, backend and frontend needs to started individuall
     cd tconnect-be
     docker compose up
     ```
-- Start the backend service. The app has two types of users, a "customer" and "tradie". The backend service will seed two users, a customer user `customer1` and a tradie user `tradie1` and as well a project when it starts up. The password for these users is same as username.
+- Start the backend service. The app has two types of users, a "customer" and "tradie". The backend service will seed three users, a customer user `customer1` and two tradie users `tradie1` and `tradie2` as well a project when it starts up. The password for these users is same as username.
     ```
     cd tconnect-be
     ./mvnw clean install && ./mvnw spring-boot:run
