@@ -56,6 +56,7 @@ public class SecurityConfig {
         http.exceptionHandling(ex -> ex.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)));
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS));
         http.csrf(csrf -> csrf.disable());
+        http.logout(logout -> logout.logoutUrl("/logout"));
         return http.build();
     }
 

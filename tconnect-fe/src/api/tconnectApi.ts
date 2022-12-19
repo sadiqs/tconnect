@@ -26,6 +26,13 @@ export const tconnectApi = createApi({
       }),
       invalidatesTags: ["projects", "bids"],
     }),
+    logout: builder.mutation<{}, {}>({
+      query: () => ({
+        url: `logout`,
+        method: "POST",
+      }),
+      invalidatesTags: ["projects", "bids"],
+    }),
     getProjects: builder.query<Project[], {}>({
       query: () => ({
         url: `projects`,
@@ -67,6 +74,7 @@ export const tconnectApi = createApi({
 
 export const {
   useLoginMutation,
+  useLogoutMutation,
   useCreateProjectMutation,
   useCreateBidMutation,
   useGetProjectsQuery,

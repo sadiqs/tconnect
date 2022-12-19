@@ -26,6 +26,13 @@ export const authSlice = createSlice({
         state.user = payload;
       }
     );
+    builder.addMatcher(
+      tconnectApi.endpoints.logout.matchFulfilled,
+      (state, { payload, meta, type }) => {
+        console.log("In AuthSlice logout", payload, meta, type);
+        state.user = undefined;
+      }
+    );
   },
 });
 
