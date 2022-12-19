@@ -1,6 +1,7 @@
 package io.github.sadiqs.tconnect.project.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
@@ -32,5 +33,6 @@ public class Project {
     Customer customer;
 
     @OneToMany(mappedBy = "project")
+    @JsonIdentityReference(alwaysAsId=true)
     List<Bid> bids = new ArrayList<>();
 }

@@ -1,6 +1,7 @@
 package io.github.sadiqs.tconnect.project.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
@@ -20,6 +21,7 @@ public class Bid {
 
     @ManyToOne
     @JoinColumn(name = "project_id")
+    @JsonIdentityReference(alwaysAsId=true)
     private Project project;
 
     @JsonIgnore

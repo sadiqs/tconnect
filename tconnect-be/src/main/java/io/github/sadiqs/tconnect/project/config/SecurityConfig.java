@@ -82,13 +82,11 @@ public class SecurityConfig {
                 project.setExpectedHours(55);
                 project.setBiddingEndTime(Instant.now().plus(Period.ofDays(4)));
                 bid.setProject(project);
-                Tradie tradie = new Tradie();
-                tradie.setName("Tradie One");
-                tradie.setTrade("carpenter");
-                tradie.setExperience(4);
-                tradie.setUsername("tradie1");
-                bid.setTradie(tradie);
-                tradieRepository.save(tradie);
+                Tradie tradie1 = createTradie("tradie1", "Tradie One");
+                Tradie tradie2 = createTradie("tradie2", "Tradie Two");
+                bid.setTradie(tradie1);
+                tradieRepository.save(tradie1);
+                tradieRepository.save(tradie2);
 
                 Customer customer = new Customer();
                 customer.setUsername("customer1");
@@ -98,6 +96,15 @@ public class SecurityConfig {
                 project.setCustomer(customer);
                 projectRepository.save(project);
                 bidRepository.save(bid);
+            }
+
+            private Tradie createTradie(String username, String displayName) {
+                Tradie tradie = new Tradie();
+                tradie.setName(displayName);
+                tradie.setTrade("carpenter");
+                tradie.setExperience(4);
+                tradie.setUsername(username);
+                return tradie;
             }
         };
     }
